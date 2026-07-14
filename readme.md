@@ -23,7 +23,7 @@ This project is an explainable data analytics system that processes Aadhaar enro
 - Python 3  
 - Pandas, NumPy  
 - Matplotlib, Seaborn  
-- Streamlit (optional UI)
+- Streamlit 
 
 ## Methodology
 1. Load multiple CSV datasets (saved or uploaded)
