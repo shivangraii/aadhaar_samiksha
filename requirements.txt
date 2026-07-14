@@ -2,4 +2,4 @@ pandas
 numpy
 matplotlib
 seaborn
-streamlit
+streamlit(Web Version)
