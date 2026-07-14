@@ -19,7 +19,31 @@ choice = st.sidebar.radio(
     format_func=lambda x: "Use default Aadhaar datasets" if x == 1 else "Upload CSV files"
 )
 
+# ---------------- Loader ----------------
+def get_data_source(choice):
+    if choice == 1:
+        paths = [
+            "data/saved/enrolment.csv",
+            "data/saved/biometrics.csv",
+            "data/saved/demographic.csv"
+        ]
+        return load_multiple_csv(paths)
 
+    else:
+        uploaded_files = st.sidebar.file_uploader(
+            "Upload CSV files",
+            type="csv",
+            accept_multiple_files=True
+        )
+
+        if uploaded_files:
+            data = {}
+            for file in uploaded_files:
+                name = file.name.replace(".csv", "")
+                data[name] = pd.read_csv(file)
+            return data
+
+        return None
 
 # ---------------- Run ----------------
 datasets = get_data_source(choice)
